@@ -99,21 +99,3 @@ const Restaurante = () => (
 )
 
 export default Restaurante
-
-/* <img className="imgMassa" src={bannermassa} alt="Massa" /> */
-
-{
-  /* <ImgBG style={{ backgroundImage: `url(${bannerImg})` }} /> */
-}
-// style={{ backgroundImage: `url(${})` }}
-
-// <Topo>
-//   <Link to="/">
-//     <p className="text">Restaurantes</p>
-//   </Link>
-//   <Link to="/">
-//     <img src={logo} alt="EFOOD" />
-//   </Link>
-// <p className="text">0 produto(s) no carrinho</p>
-// <img className="bgTopo" src={bannerImg} />
-// </Topo>
