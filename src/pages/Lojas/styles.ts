@@ -40,76 +40,38 @@ export const RestauranteContainer = styled.div`
 `
 
 export const MassasItalianas = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   div {
-    display: flex;
+    position: relative;
+    display: block;
+    max-width: 1024px;
     width: 100%;
     height: 280px;
+    color: ${cores.branca};
 
-    .imgMassa {
-      position: relative;
-      object-fit: cover;
-      width: 100%;
-      filter: brightness(0.4);
-    }
     h2 {
-      position: absolute;
-      color: ${cores.branca};
       font-size: 32px;
-      margin-left: 170px;
-      margin-top: 25px;
       font-weight: 100;
+      margin-top: 25px;
+      margin-bottom: 156px;
     }
 
     p {
-      position: absolute;
-      color: ${cores.branca};
       font-size: 32px;
       font-weight: bold;
-      margin-left: 170px;
-      margin-top: 214px;
+      margin-top: 155px;
+      margin-bottom: 32px;
     }
   }
 `
-
-export const Topo = styled.div`
+export const BGMassa = styled.img`
+  position: absolute;
+  height: 280px;
+  object-fit: cover;
   width: 100%;
-  height: 180px;
-  display: flex;
-  align-items: center;
-  background-image: url(${bannerImg});
-
-  nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-left: 170px;
-  }
-
-  a {
-    color: ${cores.salmao};
-    font-weight: bold;
-    font-size: 18px;
-    text-decoration: none;
-  }
-  img {
-    margin-left: 430px;
-    //margin-right: 190px;
-  }
-`
-
-export const Links = styled.ul`
-  display: flex;
-  align-items: center;
-`
-
-export const LinkItem = styled.li`
-  display: flex;
-`
-
-export const LinkCart = styled.a`
-  display: flex;
-  white-space: nowrap;
-  align: right;
-  margin-right: 170px;
-  margin-left: 190px;
+  filter: brightness(0.4);
 `
