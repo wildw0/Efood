@@ -1,19 +1,11 @@
 import Lojas from '../../models/Lojas'
 import ProductsList from '../../components/ProductsList'
-import {
-  RestauranteContainer,
-  MassasItalianas,
-  Topo,
-  LinkCart,
-  LinkItem,
-  Links
-} from './styles'
+import { RestauranteContainer, MassasItalianas, BGMassa } from './styles'
 import pizza from '../../assets/images/pizza.png'
 
 import bannerMassa from '../../assets/images/massa.png'
-import bannerImg from '../../assets/images/BG_header.png'
-import logo from '../../assets/images/efood_logo.png'
-import { Link } from 'react-router-dom'
+
+import HeaderLoja from '../../components/HeaderLoja'
 
 const itens: Lojas[] = [
   {
@@ -68,26 +60,11 @@ const itens: Lojas[] = [
 
 const Restaurante = () => (
   <>
-    <Topo>
-      <nav>
-        <Links>
-          <LinkItem>
-            <Link className="text" to="/">
-              Restaurantes
-            </Link>
-          </LinkItem>
-          <LinkItem>
-            <Link to="/">
-              <img src={logo} alt="EFOOD" />
-            </Link>
-          </LinkItem>
-        </Links>
-      </nav>
-      <LinkCart href="#">0 produto(s) no carrinho</LinkCart>
-    </Topo>
+    <HeaderLoja />
+
     <MassasItalianas>
+      <BGMassa src={bannerMassa} alt="Massa" />
       <div>
-        <img className="imgMassa" src={bannerMassa} alt="Massa" />
         <h2>Italiana</h2>
         <p>La Dolce Vita Trattoria</p>
       </div>
