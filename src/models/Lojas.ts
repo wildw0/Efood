@@ -5,6 +5,7 @@ class Lojas {
   infos: string[]
   image: string
   id: number
+  btnText?: string
 
   constructor(
     id: number,
@@ -12,7 +13,8 @@ class Lojas {
     rating: number,
     description: string,
     infos: string[],
-    image: string
+    image: string,
+    btnText: string
   ) {
     this.id = id
     this.name = name
@@ -20,6 +22,7 @@ class Lojas {
     this.description = description
     this.infos = infos
     this.image = image
+    this.btnText = btnText || 'Saiba mais'
   }
 }
 

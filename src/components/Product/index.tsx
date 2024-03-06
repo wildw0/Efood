@@ -18,9 +18,17 @@ type Props = {
   rating?: number
   infos: string[]
   image: string
+  btnText: string
 }
 
-const Product = ({ name, rating, description, infos, image }: Props) => (
+const Product = ({
+  name,
+  rating,
+  description,
+  infos,
+  image,
+  btnText = 'Saiba mais'
+}: Props) => (
   <Card>
     <img src={image} alt={name} />
     <Infos>
@@ -36,7 +44,7 @@ const Product = ({ name, rating, description, infos, image }: Props) => (
       </Avaliacao>
     </Perfil>
     <Descricao>{description}</Descricao>
-    <Button to="/loja">Saiba mais</Button>
+    <Button to="/loja">{btnText || 'Saiba mais'}</Button>
   </Card>
 )
 

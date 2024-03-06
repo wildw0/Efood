@@ -1,10 +1,13 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import { Card, Estrela } from '../../components/Product/styles'
+import {
+  Card,
+  Estrela,
+  Titulo,
+  Descricao
+} from '../../components/Product/styles'
 import { List } from '../../components/ProductsList/styles'
 import { ButtonContainer } from '../../components/Button/styles'
-
-import bannerImg from '../../assets/images/BG_header.png'
 
 export const RestauranteContainer = styled.div`
   ${List} {
@@ -13,15 +16,26 @@ export const RestauranteContainer = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 32px;
   }
+  ${Titulo} {
+  }
+
+  ${Descricao} {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
 
   ${Card} {
     background-color: ${cores.salmao};
     color: ${cores.beje};
     margin-bottom: 32px;
-    height: 368px;
+    height: 344px;
+    width: 320px;
 
     img {
-      padding: 8px;
+      display: flex;
+      width: 304px;
+      height: 167px;
+      margin: 8px 8px 8px 8px;
     }
 
     ${Estrela} {
@@ -33,7 +47,8 @@ export const RestauranteContainer = styled.div`
       color: ${cores.salmao};
       display: flex;
       width: 304px;
-      margin: 8px;
+      height: 24px;
+      margin: 0px 8px 8px 8px;
       justify-content: center;
     }
   }

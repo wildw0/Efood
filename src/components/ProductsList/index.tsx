@@ -19,6 +19,7 @@ const ProductsList = ({ lojas }: Props) => (
             infos={loja.infos}
             name={loja.name}
             rating={loja.rating}
+            btnText={loja.btnText || ''}
           />
         ))}
       </List>
