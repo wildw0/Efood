@@ -13,39 +13,50 @@ import {
 import estrela from '../../assets/images/estrela.png'
 
 type Props = {
-  name: string
-  description: string
-  rating?: number
-  infos: string[]
-  image: string
+  id: number
+  titulo: string
+  destacado: boolean
+  tipo: string
+  avaliacao: number
+  descricao: string
+  capa: string
   btnText: string
 }
 
 const Product = ({
-  name,
-  rating,
-  description,
-  infos,
-  image,
+  id,
+  titulo,
+  destacado,
+  tipo,
+  avaliacao,
+  descricao,
+  capa,
   btnText = 'Saiba mais'
-}: Props) => (
-  <Card>
-    <img src={image} alt={name} />
-    <Infos>
-      {infos.map((info) => (
-        <Tag key={info}>{info}</Tag>
-      ))}
-    </Infos>
-    <Perfil>
-      <Titulo>{name}</Titulo>
-      <Avaliacao>
-        <Titulo>{rating}</Titulo>
-        <Estrela src={estrela} alt="estrela" />
-      </Avaliacao>
-    </Perfil>
-    <Descricao>{description}</Descricao>
-    <Button to="/loja">{btnText || 'Saiba mais'}</Button>
-  </Card>
-)
+}: Props) => {
+  const getDrescricao = (descricao: string) => {
+    if (descricao.length > 250) {
+      return descricao.slice(0, 247) + '...'
+    }
+    return descricao
+  }
 
+  return (
+    <Card>
+      <img src={capa} alt={titulo} />
+      <Infos>
+        {destacado && <Tag>Destaque da Semana</Tag>}
+        <Tag>{tipo}</Tag>
+      </Infos>
+      <Perfil>
+        <Titulo>{titulo}</Titulo>
+        <Avaliacao>
+          <Titulo>{avaliacao}</Titulo>
+          <Estrela src={estrela} alt="estrela" />
+        </Avaliacao>
+      </Perfil>
+      <Descricao>{getDrescricao(descricao)}</Descricao>
+      <Button to={`/restaurantes/${id}`}>{btnText || 'Saiba mais'}</Button>
+    </Card>
+  )
+}
 export default Product

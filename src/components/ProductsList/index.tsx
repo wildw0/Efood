@@ -1,30 +1,35 @@
-import Lojas from '../../models/Lojas'
+import { Lojas } from '../../pages/Home'
 import Product from '../Product'
-
 import { Container, List } from './styles'
 
 export type Props = {
   lojas: Lojas[]
 }
 
-const ProductsList = ({ lojas }: Props) => (
-  <Container>
-    <div className="container">
-      <List>
-        {lojas.map((loja) => (
-          <Product
-            key={loja.id}
-            description={loja.description}
-            image={loja.image}
-            infos={loja.infos}
-            name={loja.name}
-            rating={loja.rating}
-            btnText={loja.btnText || ''}
-          />
-        ))}
-      </List>
-    </div>
-  </Container>
-)
+const ProductsList = ({ lojas }: Props) => {
+  return (
+    <Container>
+      <div className="container">
+        <List>
+          {lojas.map((loja) => (
+            <li key={loja.id}>
+              <Product
+                key={loja.id}
+                id={loja.id}
+                titulo={loja.titulo}
+                capa={loja.capa}
+                descricao={loja.descricao}
+                tipo={loja.tipo}
+                avaliacao={loja.avaliacao}
+                destacado={loja.destacado}
+                btnText={loja.btnText || ''}
+              />
+            </li>
+          ))}
+        </List>
+      </div>
+    </Container>
+  )
+}
 
 export default ProductsList

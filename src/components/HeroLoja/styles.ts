@@ -1,13 +1,8 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import {
-  Card,
-  Estrela,
-  Titulo,
-  Descricao
-} from '../../components/Product/styles'
-import { List } from '../../components/ProductsList/styles'
-import { ButtonContainer } from '../../components/Button/styles'
+import { Card, Estrela, Titulo, Descricao } from '../Product/styles'
+import { List } from '../ProductsList/styles'
+import { ButtonContainer } from '../Button/styles'
 
 export const RestauranteContainer = styled.div`
   ${List} {
@@ -54,7 +49,7 @@ export const RestauranteContainer = styled.div`
   }
 `
 
-export const MassasItalianas = styled.div`
+export const Capa = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
@@ -83,7 +78,7 @@ export const MassasItalianas = styled.div`
     }
   }
 `
-export const BGMassa = styled.img`
+export const BGCapa = styled.img`
   position: absolute;
   height: 280px;
   object-fit: cover;

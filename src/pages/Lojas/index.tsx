@@ -1,84 +1,29 @@
-import Lojas from '../../models/Lojas'
-import ProductsList from '../../components/ProductsList'
-import { RestauranteContainer, MassasItalianas, BGMassa } from './styles'
-import pizza from '../../assets/images/pizza.png'
-
-import bannerMassa from '../../assets/images/massa.png'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 import HeaderLoja from '../../components/HeaderLoja'
 
-const itens: Lojas[] = [
-  {
-    id: 1,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    name: 'Pizza Marguerita',
-    infos: [],
-    image: pizza,
-    btnText: 'Adicionar ao carrinho'
-  },
-  {
-    id: 2,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    name: 'Pizza Marguerita',
-    infos: [],
-    image: pizza,
-    btnText: 'Adicionar ao carrinho'
-  },
-  {
-    id: 3,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    name: 'Pizza Marguerita',
-    infos: [],
-    image: pizza,
-    btnText: 'Adicionar ao carrinho'
-  },
-  {
-    id: 4,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    name: 'Pizza Marguerita',
-    infos: [],
-    image: pizza,
-    btnText: 'Adicionar ao carrinho'
-  },
-  {
-    id: 5,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    name: 'Pizza Marguerita',
-    infos: [],
-    image: pizza,
-    btnText: 'Adicionar ao carrinho'
-  },
-  {
-    id: 6,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    name: 'Pizza Marguerita',
-    infos: [],
-    image: pizza,
-    btnText: 'Adicionar ao carrinho'
-  }
-]
+import { Lojas } from '../Home'
+import HeroLoja from '../../components/HeroLoja'
 
-const Restaurante = () => (
-  <>
-    <HeaderLoja />
+const Restaurante = () => {
+  const { id } = useParams()
+  const [lojas, setLojas] = useState<Lojas[]>()
 
-    <MassasItalianas>
-      <BGMassa src={bannerMassa} alt="Massa" />
-      <div>
-        <h2>Italiana</h2>
-        <p>La Dolce Vita Trattoria</p>
-      </div>
-    </MassasItalianas>
-    <RestauranteContainer>
-      <ProductsList lojas={itens} />
-    </RestauranteContainer>
-  </>
-)
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((res) => setLojas(res))
+  }, [id])
+
+  if (!lojas) return <div>Carregando...</div>
+
+  return (
+    <>
+      <HeaderLoja />
+      <HeroLoja lojas={lojas} />
+    </>
+  )
+}
 
 export default Restaurante
