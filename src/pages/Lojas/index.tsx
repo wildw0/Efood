@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom'
 
 import HeaderLoja from '../../components/HeaderLoja'
 
-import { Lojas } from '../Home'
+import { Cardapio, Lojas } from '../Home'
 import HeroLoja from '../../components/HeroLoja'
+import CardapioList from '../../components/CardapioList'
 
 const Restaurante = () => {
   const { id } = useParams()
@@ -22,6 +23,7 @@ const Restaurante = () => {
     <>
       <HeaderLoja />
       <HeroLoja lojas={lojas} />
+      <CardapioList cardapio={[]} />
     </>
   )
 }

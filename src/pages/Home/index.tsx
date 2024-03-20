@@ -13,19 +13,23 @@ export type Lojas = {
   descricao: string
   capa: string
   btnText: string
+  cardapio: {
+    foto: string
+    preco: number
+    id: number
+    nome: string
+    descricao: string
+    porcao: string
+  }[]
 }
 
-export type Menu = {
-  cardapio: [
-    {
-      foto: string
-      preco: number
-      id: number
-      nome: string
-      descricao: string
-      porcao: string
-    }
-  ]
+export type Cardapio = {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
 }
 
 const Home = () => {

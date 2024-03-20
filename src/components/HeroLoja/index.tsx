@@ -1,5 +1,5 @@
 import ProductsList from '../../components/ProductsList'
-import { Lojas, Menu } from '../../pages/Home'
+import { Lojas } from '../../pages/Home'
 
 import {
   RestauranteContainer,

@@ -1,33 +1,49 @@
-import { Menu } from '../../pages/Home'
-import Product from '../Product'
-import { Container, List } from '../ProductsList/styles'
+import Tag from '../Tag'
+import Button from '../Button'
+import { Card, Titulo, Descricao, Infos, Perfil, Avaliacao } from './styles'
 
-export type Props = {
-  menu: Menu[]
+type Props = {
+  id: number
+  nome: string
+  preco: string
+  descricao: string
+  foto: string
+  porcao: string
+  btnText: string
 }
 
-const Cardapio = ({ menu }: Props) => {
+const Product = ({
+  id,
+  nome,
+  preco,
+  foto,
+  descricao,
+  porcao,
+  btnText = 'Adicionar ao carrinho'
+}: Props) => {
+  const getDrescricao = (descricao: string) => {
+    if (descricao.length > 250) {
+      return descricao.slice(0, 247) + '...'
+    }
+    return descricao
+  }
+
   return (
-    <Container>
-      <div className="container">
-        <List>
-          {menu.map((menu) => (
-            <li key={menu.cardapio.id}>
-              <Product
-                key={menu.cardapio.id}
-                id={menu.cardapio.id}
-                nome={menu.cardapio.nome}
-                preco={`R$ ${menu.cardapio.preco}`}
-                foto={menu.cardapio.foto}
-                descricao={menu.cardapio.descricao}
-                porcao={menu.cardapio.porcao}
-              />
-            </li>
-          ))}
-        </List>
-      </div>
-    </Container>
+    <Card>
+      <img src={foto} alt={nome} />
+      <Infos></Infos>
+      <Perfil>
+        <Titulo>{nome}</Titulo>
+        <Avaliacao>
+          <Titulo></Titulo>
+        </Avaliacao>
+      </Perfil>
+      <Descricao>{getDrescricao(descricao)}</Descricao>
+      {porcao}
+      <Button to={`/restaurantes/${id}`}>
+        {btnText || 'Saiba mais'}
+      </Button> - {preco}
+    </Card>
   )
 }
-
-export default Cardapio
+export default Product
