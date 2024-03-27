@@ -15,7 +15,7 @@ export type Lojas = {
   btnText: string
   cardapio: {
     foto: string
-    preco: number
+    preco: string
     id: number
     nome: string
     descricao: string
@@ -25,7 +25,7 @@ export type Lojas = {
 
 export type Cardapio = {
   foto: string
-  preco: number
+  preco: string
   id: number
   nome: string
   descricao: string

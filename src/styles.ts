@@ -17,7 +17,7 @@ export const GlobalCss = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.beje};
+    background-color: ${cores.bejeClaro};
     color: ${cores.salmao};
   }
 

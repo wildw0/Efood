@@ -9,21 +9,21 @@ import CardapioList from '../../components/CardapioList'
 
 const Restaurante = () => {
   const { id } = useParams()
-  const [lojas, setLojas] = useState<Lojas[]>()
+  const [loja, setLoja] = useState<Lojas | null>(null)
 
   useEffect(() => {
     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
-      .then((res) => setLojas(res))
+      .then((res) => setLoja(res))
   }, [id])
 
-  if (!lojas) return <div>Carregando...</div>
+  if (!loja) return <div>Carregando...</div>
 
   return (
     <>
       <HeaderLoja />
-      <HeroLoja lojas={lojas} />
-      <CardapioList cardapio={[]} />
+      <HeroLoja loja={loja} />
+      <CardapioList cardapios={loja.cardapio} />
     </>
   )
 }

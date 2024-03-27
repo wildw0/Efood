@@ -1,30 +1,24 @@
 import ProductsList from '../../components/ProductsList'
 import { Lojas } from '../../pages/Home'
 
-import {
-  RestauranteContainer,
-  Capa,
-  BGCapa
-} from '../../components/HeroLoja/styles'
+import { Capa, BGCapa } from '../../components/HeroLoja/styles'
 
-type Props = {
-  lojas: Lojas
+interface Props {
+  loja: Lojas
 }
 
-const HeroLoja = ({ lojas }: Props) => {
+const HeroLoja: React.FC<Props> = ({ loja }) => {
+  const { id, titulo, capa, descricao, destacado, avaliacao } = loja
+
   return (
     <>
       <Capa>
-        <BGCapa src={lojas.capa} alt={lojas.titulo} />
+        <BGCapa src={loja.capa} alt={loja.titulo} />
         <div>
-          <h2>{lojas.tipo}</h2>
-          <p>{lojas.titulo}</p>
+          <h2>{loja.tipo}</h2>
+          <p>{loja.titulo}</p>
         </div>
       </Capa>
-
-      <RestauranteContainer>
-        <ProductsList lojas={[]} />
-      </RestauranteContainer>
     </>
   )
 }

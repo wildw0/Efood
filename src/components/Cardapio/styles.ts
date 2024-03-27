@@ -1,59 +1,54 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import { TagContainer } from '../Tag/styles'
+
+import { ButtonContainer } from '../../components/Button/styles'
+
+export const ListaCardapio = styled.section``
+
+export const CardapioContainer = styled.div`
+  display: flex;
+`
+export const List = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+
+  ${ButtonContainer} {
+    background-color: ${cores.beje};
+    color: ${cores.salmao};
+    display: flex;
+    width: 304px;
+    height: 24px;
+    margin: 8px 8px 8px 8px;
+    justify-content: center;
+  }
+`
 
 export const Card = styled.div`
-  background-color: ${cores.branca};
-  border: 1px solid ${cores.salmao};
-  margin-bottom: 48px;
-  position: relative;
-  height: 400px;
+  background-color: ${cores.salmao};
+  color: ${cores.beje};
+  height: 344px;
+  width: 320px;
 
   img {
-    display: block;
-    width: 100%;
-    max-height: 217px;
+    display: flex;
     object-fit: cover;
-  }
-
-  ${TagContainer} {
-    margin-right: 8px;
+    width: 304px;
+    height: 167px;
+    margin: 8px 8px 8px 8px;
   }
 `
 
 export const Titulo = styled.h3`
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16 px;
   display: block;
+  margin: 8px 8px;
 `
 
 export const Descricao = styled.p`
   font-size: 14px;
   line-height: 22px;
   display: block;
-  margin: 16px 8px;
-`
-
-export const Infos = styled.div`
-  position: absolute;
-  top: 16px;
-  right: 16px;
-`
-
-export const Perfil = styled.div`
   margin: 8px 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 `
-
-export const Avaliacao = styled.div`
-  display: flex;
-  align-items: center;
-
-  img {
-    margin-left: 8px;
-  }
-`
-
-export const Estrela = styled.img``

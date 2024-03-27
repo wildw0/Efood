@@ -1,6 +1,13 @@
-import Tag from '../Tag'
+import { useState } from 'react'
 import Button from '../Button'
-import { Card, Titulo, Descricao, Infos, Perfil, Avaliacao } from './styles'
+import {
+  CardapioContainer,
+  Card,
+  Descricao,
+  Titulo,
+  ListaCardapio,
+  List
+} from '../Cardapio/styles'
 
 type Props = {
   id: number
@@ -9,7 +16,7 @@ type Props = {
   descricao: string
   foto: string
   porcao: string
-  btnText: string
+  btnText?: string
 }
 
 const Product = ({
@@ -22,28 +29,28 @@ const Product = ({
   btnText = 'Adicionar ao carrinho'
 }: Props) => {
   const getDrescricao = (descricao: string) => {
-    if (descricao.length > 250) {
-      return descricao.slice(0, 247) + '...'
+    if (descricao.length > 150) {
+      return descricao.slice(0, 147) + '...'
     }
     return descricao
   }
 
   return (
-    <Card>
-      <img src={foto} alt={nome} />
-      <Infos></Infos>
-      <Perfil>
+    // <ListaCardapio>
+    <CardapioContainer>
+      {/* <List> */}
+      <Card>
+        <img src={foto} alt={nome} />
         <Titulo>{nome}</Titulo>
-        <Avaliacao>
-          <Titulo></Titulo>
-        </Avaliacao>
-      </Perfil>
-      <Descricao>{getDrescricao(descricao)}</Descricao>
-      {porcao}
-      <Button to={`/restaurantes/${id}`}>
-        {btnText || 'Saiba mais'}
-      </Button> - {preco}
-    </Card>
+        <Descricao> {getDrescricao(descricao)}</Descricao>
+        {/* {porcao} */}
+        <Button to={`/restaurantes/${id}`}>{btnText}</Button>
+        {/* - {preco} */}
+      </Card>
+
+      {/* </List> */}
+    </CardapioContainer>
+    // </ListaCardapio>
   )
 }
 export default Product
